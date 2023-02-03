@@ -28,6 +28,7 @@ export default function App() {
    );
 }
 
+// style
 const styles = StyleSheet.create({
   container: {
     flex: 1,
