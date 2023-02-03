@@ -1,16 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ScrollView, Text, View, Image } from 'react-native';
+import { StyleSheet, FlatList, ScrollView, Text, View, Image } from 'react-native';
 
 export default function App() {
   return (
-    <ScrollView style={{marginTop:80}}>
-      <View style={{width: 400, height: 400, backgroundColor:"skyblue", margin : 5}} />
-      <ScrollView horizontal={true}>
-        <View style = {styles.blocs} />
-        <View style = {styles.blocs} />
-        <View style={styles.blocs} />
-      </ScrollView>
-      <View style={{width: 400, height: 400, backgroundColor:"skyblue", margin : 5 }} />
+    <ScrollView>
+      <View style={{marginTop:70}}>
+        <FlatList
+          data={[
+            {key:'Benoit'},
+            {key:'Bernard'},
+            {key:'Jean-Marc A'},
+            {key:'Jérôme'},
+            {key:'Jean-Marc S'},
+            {key:'Catherine'},
+            {key:'Pierre-Alexandre'},
+            {key:'Véronique'},
+            {key:'Noémie'},
+            {key:'Baptiste'},
+            {key:'Coralie'},
+            {key:'Tracy'},
+            {key:'Sophie'},
+          ]}
+          renderItem={({item})=><Text style={styles.cases}>{item.key}</Text>}
+        />
+      </View>
     </ScrollView>
    );
 }
@@ -31,6 +44,14 @@ const styles = StyleSheet.create({
     backgroundColor:"steelblue",
     margin:10,
   }, 
+  cases: {
+    flex : 1,
+    backgroundColor : "skyblue",
+    padding : 15,
+    marginVertical : 5,
+    marginHorizontal : 0,
+    fontSize:20,
+  },
   titre: {
     color : "red",
     fontWeight : "bold",
