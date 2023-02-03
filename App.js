@@ -1,21 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { Component } from 'react';
-import { StyleSheet, TouchableOpacity, Alert, Text, View, Image } from 'react-native';
-
-
+import { Component, useState } from 'react';
+import { StyleSheet, Text, TextInput, View, Alert, Image } from 'react-native';
 
 export default function App() {
-  const showAlert = () => {
-    Alert.alert('Alert ! \n Good Job.')
-  }
-  return (
+  const[text, setText] = useState('');
+  const showAlert = (texte) => {
+    Alert.alert('Hello', texte.nativeEvent.text)
+  };
+  
+  return(
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonContainer} onPress={showAlert}>
-          <Text style={styles.buttonText}>Hit me like you mean it</Text>
-      </TouchableOpacity>
-    </View>      
-  )
-  }
+      <TextInput
+        style={{height:40}}
+        placeholder="Saisissez votre prénom"
+        onSubmitEditing={showAlert}
+      />
+    </View>
+
+  );
+    
+  };
+
+  
+  
+  
 
 // style
 const styles = StyleSheet.create({
