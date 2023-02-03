@@ -1,41 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, FlatList, ScrollView, Text, View, Image } from 'react-native';
+import { Component } from 'react';
+import { StyleSheet, TouchableOpacity, Alert, Text, View, Image } from 'react-native';
+
+
 
 export default function App() {
+  const showAlert = () => {
+    Alert.alert('Alert ! \n Good Job.')
+  }
   return (
-    <ScrollView>
-      <View style={{marginTop:70}}>
-        <FlatList
-          data={[
-            {key:'Benoit'},
-            {key:'Bernard'},
-            {key:'Jean-Marc A'},
-            {key:'Jérôme'},
-            {key:'Jean-Marc S'},
-            {key:'Catherine'},
-            {key:'Pierre-Alexandre'},
-            {key:'Véronique'},
-            {key:'Noémie'},
-            {key:'Baptiste'},
-            {key:'Coralie'},
-            {key:'Tracy'},
-            {key:'Sophie'},
-          ]}
-          renderItem={({item})=><Text style={styles.cases}>{item.key}</Text>}
-        />
-      </View>
-    </ScrollView>
-   );
-}
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={showAlert}>
+          <Text style={styles.buttonText}>Hit me like you mean it</Text>
+      </TouchableOpacity>
+    </View>      
+  )
+  }
 
 // style
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems : "flex-end",
-    justifyContent:"space-between",
+    alignItems : "center",
+    justifyContent:"center",
     paddingTop : 60,
+  },
+  buttonContainer:{
+    margin:20,
+    justifyContent:"center",
+    backgroundColor: 'skyblue',
+    padding : 15,
+    width : 320,
+  },
+  buttonText:{
+    fontSize:20,
+    textAlign:"center",
   },
   blocs:{
     flexDirection : "row",
